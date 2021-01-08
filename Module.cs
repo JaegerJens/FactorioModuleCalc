@@ -1,5 +1,9 @@
+using Factorio.ModuleCalc.Resources;
+
 namespace Factorio.ModuleCalc {
-    public abstract class Module {
+    public abstract class Module: Item {
+        public Module(ItemType type, int count = 1): base(type, count) {}
+
         public int Level { get; protected set; }
 
         public int EnergyConsumption { get; protected set; }
@@ -10,7 +14,7 @@ namespace Factorio.ModuleCalc {
     }
 
     public class SpeedModule: Module {
-        public SpeedModule(int level) {
+        public SpeedModule(int level, int count = 1): base(ItemType.SpeedModule, count) {
             this.Level = level;
             this.Productivity = 0;
             switch (level) {
@@ -32,7 +36,7 @@ namespace Factorio.ModuleCalc {
     }
 
     public class ProductivityModule: Module {
-        public ProductivityModule(int level) {
+        public ProductivityModule(int level, int count = 1): base(ItemType.ProductivityModule, count) {
             this.Level = level;
             switch (level) {
                 case 3:

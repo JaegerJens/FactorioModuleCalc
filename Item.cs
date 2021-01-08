@@ -12,6 +12,8 @@ namespace Factorio.ModuleCalc.Resources {
         ElectronicCircuit,
         AdvancedCircuit,
         ProcessingUnit,
+        SpeedModule,
+        ProductivityModule,
     }
 
     public class Item: FactorioResource {
