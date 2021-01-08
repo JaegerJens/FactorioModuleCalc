@@ -1,7 +1,7 @@
 using Factorio.ModuleCalc.Resources;
 
 namespace Factorio.ModuleCalc.Receipt {
-    public abstract class Receipt {
+    public abstract class ReceiptBase {
         public FactorioResource[] Input { get; protected set; }
 
         public FactorioResource Output { get; protected set; }
@@ -9,7 +9,7 @@ namespace Factorio.ModuleCalc.Receipt {
         public decimal CraftTime { get; protected set; }
     }
 
-    public class ElectronicCircuitReceipt: Receipt {
+    public class ElectronicCircuitReceipt: ReceiptBase {
         public ElectronicCircuitReceipt() {
             this.Output = new Item(ItemType.ElectronicCircuit, 1);
             this.Input = new [] {
@@ -20,7 +20,7 @@ namespace Factorio.ModuleCalc.Receipt {
         }
     }
 
-    public class AdvanceCircuitReceipt: Receipt {
+    public class AdvanceCircuitReceipt: ReceiptBase {
         public AdvanceCircuitReceipt() {
             this.Output = new Item(ItemType.AdvancedCircuit, 1);
             this.Input = new [] {
@@ -32,7 +32,7 @@ namespace Factorio.ModuleCalc.Receipt {
         }
     }
 
-    public class ProcessingUnitReceipt: Receipt {
+    public class ProcessingUnitReceipt: ReceiptBase {
         public ProcessingUnitReceipt() {
             this.Output = new Item(ItemType.ProcessingUnit, 1);
             this.Input = new FactorioResource[] {
