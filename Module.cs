@@ -1,3 +1,4 @@
+using System;
 using Factorio.ModuleCalc.Resources;
 
 namespace Factorio.ModuleCalc {
@@ -57,5 +58,20 @@ namespace Factorio.ModuleCalc {
                     break;
             }
         }
+    }
+
+    public class Beacon: Module {
+        public Beacon(Module first, Module second, int count = 1): base(ItemType.Beacon, count) {
+            if (first is Beacon || second is Beacon) {
+                throw new Exception("Beacon does not accepts other Beacons");
+            }
+            this.Level = 1;
+            this.EnergyConsumption = (first.EnergyConsumption + second.EnergyConsumption) / 2;
+            this.Speed = (first.Speed + second.Speed) / 2;
+            this.Productivity = (first.Productivity + second.Productivity) / 2;
+        }
+
+        public Module First { get; private set; }
+        public Module Second { get; private set; }
     }
 }

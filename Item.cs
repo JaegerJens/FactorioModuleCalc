@@ -14,6 +14,7 @@ namespace Factorio.ModuleCalc.Resources {
         ProcessingUnit,
         SpeedModule,
         ProductivityModule,
+        Beacon,
     }
 
     public class Item: FactorioResource {
